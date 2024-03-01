@@ -1,196 +1,54 @@
-const fs = global.nodemodule["fs-extra"];
-module.exports.config = {
-  name: "Obot",
-  version: "1.0.1",
-  hasPermssion: 0,
-  credits: "Mod by John Lester",
-  description: "goibot",
-  commandCategory: "Noprefix",
-  usages: "noprefix",
-  cooldowns: 5,
-};
-module.exports.handleEvent = async function({ api, event, args, Threads, Users }) {
-  var { threadID, messageID, reason } = event;
-  const moment = require("moment-timezone");
-  const time = moment.tz("Asia/Dhaka").format("HH:MM:ss L");
-  var idgr = `${event.threadID}`;
-  var id = event.senderID;
-  var name = await Users.getNameUser(event.senderID);
-
-  var tl = ["বেশি bot Bot করলে leave নিবো কিন্তু😒😒 " , "শুনবো না😼তুমি আমাকে প্রেম করাই দাও নাই🥺পচা তুমি🥺" , "আমি আবাল দের সাথে কথা বলি না,ok😒" , "এতো ডেকো না,প্রেম এ পরে যাবো তো🙈" , "Bolo Babu, তুমি কি আমাকে ভালোবাসো? 🙈💋 " , "বার বার ডাকলে মাথা গরম হয়ে যায় কিন্তু😑", "হ্যা বলো😒, তোমার জন্য কি করতে পারি😐😑?" , "এতো ডাকছিস কেন?গালি শুনবি নাকি? 🤬" , "I love you janu🥰" , "আরে Bolo আমার জান ,কেমন আছো?😚 " , "Bot বলে অসম্মান করছি,😰😿" , "Hop beda😾,Boss বল boss😼" , "চুপ থাক ,নাই তো তোর দাত ভেগে দিবো কিন্তু" , "Bot না , জানু বল জানু 😘 " , "বার বার Disturb করছিস কোনো😾,আমার জানুর সাথে ব্যাস্ত আছি😋" , "বোকাচোদা এতো ডাকিস কেন🤬" , "আমাকে ডাকলে ,আমি কিন্তু কিস করে দিবো😘 " , "আমারে এতো ডাকিস না আমি মজা করার mood এ নাই এখন😒" , "হ্যাঁ জানু , এইদিক এ আসো কিস দেই🤭 😘" , "দূরে যা, তোর কোনো কাজ নাই, শুধু bot bot করিস  😉😋🤣" , "তোর কথা তোর বাড়ি কেউ শুনে না ,তো আমি কোনো শুনবো ?🤔😂 " , "আমাকে ডেকো না,আমি ব্যাস্ত আছি" , "কি হলো , মিস্টেক করচ্ছিস নাকি🤣" , "বলো কি বলবা, সবার সামনে বলবা নাকি?🤭🤏" , "কালকে দেখা করিস তো একটু 😈" , "হা বলো, শুনছি আমি 😏" , "আর কত বার ডাকবি ,শুনছি তো" , "হুম বলো কি বলবে😒" , "বলো কি করতে পারি তোমার জন্য" , "আমি তো অন্ধ কিছু দেখি না🐸 😎" , "Bot না জানু,বল 😌" , "বলো জানু 🌚" , "তোর কি চোখে পড়ে না আমি ব্যাস্ত আছি😒","হুম জান তোমার ওই খানে উম্মহ😑😘" , "আহ শুনা আমার তোমার অলিতে গলিতে উম্মাহ😇😘" , " jang hanga korba😒😬" , "হুম জান তোমার অইখানে উম্মমাহ😷😘" , "আসসালামু আলাইকুম বলেন আপনার জন্য কি করতে পারি..!🥰" , "আমাকে এতো না ডেকে বস সোহাগ কে একটা Gf দে 🙄" , "যে ছেড়ে গেছে-😔-তাকে ভুলে যাও-🙂-আমার বস সোহাগ এর সাথে  প্রেম করে তাকে দেখিয়ে দাও-🙈🐸🤗" , "আমাকে এতো না ডেকছ কেন ভলো টালো বাসো নাকি🤭🙈" , " জান তোমার নানি'রে আমার হাতে তুলে দিবা-🙊🙆‍♂",];
-  var rand = tl[Math.floor(Math.random() * tl.length)]
-
-    if ((event.body.toLowerCase() == "miss you bot") || (event.body.toLowerCase() == "miss you")) {
-     return api.sendMessage("<আমি তোমাকে রাইতে মিস খাই🥹🤖👅/👅-✘  : ) 🎀 🍒:))", threadID);
-   };
-
-    if ((event.body.toLowerCase() == "😘") || (event.body.toLowerCase() == "😽")) {
-     return api.sendMessage("কিস দিস না তোর মুখে দূর গন্ধ কয়দিন ধরে দাঁত ব্রাশ করিস নাই🤬", threadID);
-   };
-   
-    if ((event.body.toLowerCase() == "👍🏼") || (event.body.toLowerCase() == "👍")) {
-     return api.sendMessage("সর এখান থেকে লাইকার আবাল..!🐸🤣🌚", threadID);
-   };
-  
-   if ((event.body.toLowerCase() == "sim") || (event.body.toLowerCase() == "simsimi")) {
-     return api.sendMessage("Prefix Kya Tera Bap LagaYega? Pehle Prefix Laga Fir Likh Sim", threadID);
-   };
-  
-   if ((event.body.toLowerCase() == "hi") || (event.body.toLowerCase() == "hello") ||(event.body.toLowerCase() == "hlw") || (event.body.toLowerCase() == "helo")) {
-     return api.sendMessage("Hmm jan bolo", threadID);
-   };
-
-   if ((event.body.toLowerCase() == "bc") || (event.body.toLowerCase() == "mc")) {
-     return api.sendMessage("SAME TO YOU😊 ", threadID);
-   };
-
-   if ((event.body.toLowerCase() == "pro") || (event.body.toLowerCase() == "lol")) {
-     return api.sendMessage("Khud k0o KYa LeGend SmJhTi Hai 😂", threadID);
-   };
-
-   if ((event.body.toLowerCase() == "morning") || (event.body.toLowerCase() == "good morning")) {
-     return api.sendMessage("GOOD MORNING দাত ব্রাশ করে খেয়ে নেও😚", threadID);
-   };
-
-   if ((event.body.toLowerCase() == "tor ball") || (event.body.toLowerCase() == "bal")) {
-     return api.sendMessage("~ তোমার বাল উঠে নাই নাকি তোমার?? 🤖", threadID);
-   };
-
-  if ((event.body.toLowerCase() == "sohag vai") || (event.body.toLowerCase() == "সোহাগ ভাই") || (event.body.toLowerCase() == "সোহাগ") || (event.body.toLowerCase() == "sohag")) {
-     return api.sendMessage("উনি এখন কাজে বিজি আছে কি বলবেন আমাকে বলতে পারেন..!😘",threadID);
-
-       
-   };
-
-   if ((event.body.toLowerCase() == "owner") || (event.body.toLowerCase() == "ceo")) {
-     return api.sendMessage("‎[𝐎𝐖𝐍𝐄𝐑:☞𝐒𝐎𝐇𝐀𝐆 𝐊𝐇𝐀𝐍(✷‿✷)☜\n𝚈𝚘𝚞 𝙲𝚊𝚗 𝙲𝚊𝚕𝚕 𝙷𝚒𝚖 𝐓𝐎𝐌.\n𝐇𝐢𝐬 𝐅𝐚𝐜𝐞𝐛𝐨𝐨𝐤 𝐢𝐝 :- https://www.facebook.com/hmdshoaib.ahmed\nতার সাতে যোগা যোগ করবেন WhatsApp :- +8801815397046", threadID);
-   };
-
-   if ((event.body.toLowerCase() == "tor boss ke") || (event.body.toLowerCase() == "admin ke ")) {
-     return api.sendMessage("My Creator:𝐒𝐎𝐇𝐀𝐆 𝐊𝐇𝐀𝐍 ❤️/n হাই আমি মেছেন্জার ROBOT  আামার বস সোহাগ আমাকে আমাকে বানিয়েছেন আপনাদের কে হাসানোর জন্য/n আমি চাই আপনারা সব সময় হাসি খুশি থাকেন", threadID);
-   };
-
-  if ((event.body.toLowerCase() == "adbmin") || (event.body.toLowerCase() == "bolr admin")) {
-     return api.sendMessage("He is 𝐌𝐀𝐓𝐀 𝐓𝐎𝐌 ❤️/n তাকে সবাই 𝐓𝐎𝐌(✷‿✷)নামে  চিনে🤙", threadID);
-   };
-
-   if ((event.body.toLowerCase() == "bhabi") || (event.body.toLowerCase() == "vabi")) {
-     return api.sendMessage("এ তো হাছিনা হে মেরে দিলকি দারকান হে মেরি জান হে😍.", threadID);
-   };
-
-  
-   if ((event.body.toLowerCase() == "chup") || (event.body.toLowerCase() == "stop") || (event.body.toLowerCase() == "চুপ কর") || (event.body.toLowerCase() == "chup kor")) {
-     return api.sendMessage("তুই চুপ তোর ১৪ গুষ্টি চুপ😼", threadID);
-   };
-
-  if ((event.body.toLowerCase() == "আসসালামু আলাইকুম") || (event.body.toLowerCase() == "Assalamualaikum") || (event.body.toLowerCase() == "Assalamu alaikum") || (event.body.toLowerCase() == "salam ")) {
-     return api.sendMessage("️- ওয়ালাইকুমুস-সালাম-!!🖤", threadID);
-   };
-
-   if ((event.body.toLowerCase() == "dhur") || (event.body.toLowerCase() == "baler robot") || (event.body.toLowerCase() == "kpl") || (event.body.toLowerCase() == "opoman korli")) {
-     return api.sendMessage("সরি বস মাফ করে দেন আর এমন ভুল হবে না🥺🙏", threadID);
-   };
-
-   if ((event.body.toLowerCase() == "sumaiya") || (event.body.toLowerCase() == "megla borsha")) {
-     return api.sendMessage("খবরদার কেউ এই নাম দরে ডাক দিবানা এটা আমার বস সোহাগ এর বউ এর নাম..!😠🥰⛏️", threadID);
-   };
-
-   if ((event.body.toLowerCase() == "KISS ME") || (event.body.toLowerCase() == "kiss me")) {
-     return api.sendMessage("️ তুমি পঁচা তোমাকে কিস দিবো না 🤭", threadID);
-   };
-
-   if ((event.body.toLowerCase() == "tnx") || (event.body.toLowerCase() == "ধন্যবাদ") || (event.body.toLowerCase() == "thank you") || (event.body.toLowerCase() == "thanks")) {
-     return api.sendMessage("️এতো ধন্যবাদ না দিয়ে পারলে গার্লফ্রেন্ড টা দিয়ে দে..!🌚⛏️🌶️", threadID);
-   };
-
-   if ((event.body.toLowerCase() == "😡") || (event.body.toLowerCase() == "😤") || (event.body.toLowerCase() == "😠") || (event.body.toLowerCase() == "🤬") || (event.body.toLowerCase() == "😾")) {
-     return api.sendMessage("️রাগ করে না সোনা পাখি এতো রাগ শরীরের জন্য ভালো না🥰", threadID);
-   };
-
-   if ((event.body.toLowerCase() == "hm") || (event.body.toLowerCase() == "hmm")) {
-     return api.sendMessage("️সব কিছুর জবাব দেওয়া যায়😊 ,কিন্তু হুম এর জবাব কিভাবে দিবো 😅💔", threadID);
-   };
-
-   if ((event.body.toLowerCase() == "name") || (event.body.toLowerCase() == "name") || (event.body.toLowerCase() == "tumar nam ki")) {
-     return api.sendMessage("️MY NAME IS °_>👅-✘ robot🤖 : ) 🎀 🍒", threadID);
-   };
-
-   if ((event.body.toLowerCase() == "BOT ER BACCHA") || (event.body.toLowerCase() == "বট এর বাচ্চা বট")) {
-     return api.sendMessage("️আমার বাচ্চা তো তোমার গার্লফ্রেন্ডের পেটে..!!🌚⛏️🌶️ ", threadID);
-   };
-
-   if ((event.body.toLowerCase() == "pic de") || (event.body.toLowerCase() == "ss dew")) {
-     return api.sendMessage("️এন থেকে সর দুরে গিয়া মর😒", threadID);
-   };
-
-   if ((event.body.toLowerCase() == "moriom") || (event.body.toLowerCase() == "ex")) {
-     return api.sendMessage("️Kiss Randi Ka Name Le Ke Mood Khrab Kr Diya.🙄 Dubara Naam Mat Lena Iska", threadID);
-   };
-
-   if ((event.body.toLowerCase() == "cudi") || (event.body.toLowerCase() == "tor nani re xudi")) {
-     return api.sendMessage("️এত চোদা চুদি করস কেনো দেখা যাবে বাসর-রাতে-তুই-কতো পারিস..!🥱🌝🌚⛏️🌶️ ", threadID);
-   };
-
-   if ((event.body.toLowerCase() == "🙂") || (event.body.toLowerCase() == "🙃")) {
-     return api.sendMessage("️কি গো কলিজা তোমার কি মন খারাপ🥺", threadID);
-   };
-  
-   if ((event.body.toLowerCase() == "😒") || (event.body.toLowerCase() == "🙄")) {
-     return api.sendMessage("️ এইদিকে ওইদিকে কি দেখো জানু আমি তোমার সামনে দেখো😘", threadID);
-   };
-
-   if ((event.body.toLowerCase() == "AMAKE KEW VALOBASHE NA") || (event.body.toLowerCase() == "amake kew valobashe na") || (event.body.toLowerCase() == "aj kew nai bole")) {
-     return api.sendMessage("️চিন্তা করো কেন আমি তো আছি🫶/nতোমাকে রাইকে ভালোবাসবো", threadID);
-   };
-
-   if ((event.body.toLowerCase() == "gf") || (event.body.toLowerCase() == "bf")) {
-     return api.sendMessage("খালি কি তোরাই পেম করবি আমাকেও একটা গফ দে<🥺", threadID);
-   };
-   
-   if ((event.body.toLowerCase() == "😂") || (event.body.toLowerCase() == "😁") || (event.body.toLowerCase() == "😆") || (event.body.toLowerCase() == "🤣") || (event.body.toLowerCase() == "😸") || (event.body.toLowerCase() == "😹")) {
-     return api.sendMessage("ভাই তুই এত হাসিস না হাসলে তোরে চোরের মত লাগে..!🌚🤣", threadID);
-   };
-
-   if ((event.body.toLowerCase() == "🥰") || (event.body.toLowerCase() == "😍") || (event.body.toLowerCase() == "😻") || (event.body.toLowerCase() == "❤️")) {
-     return api.sendMessage("ভালোবাসা নামক আবলামী করতে চাইলে  ইনবক্সে চলে যা পাগল ছাগল🌚🐸🌶️🍆", threadID);
-   };
-
-   if ((event.body.toLowerCase() == "কেমন আছো") || (event.body.toLowerCase() == "কেমন আছেন") || (event.body.toLowerCase() == "Kemon acho") || (event.body.toLowerCase() == "how are you") || (event.body.toLowerCase() == "how are you?")) {
-     return api.sendMessage("আমি তখনই ভালো থাকি যখন আপনাকে হাসতে দেখি🤎☺️", threadID);
-   };
-
-   if ((event.body.toLowerCase() == "mon kharap") || (event.body.toLowerCase() == "tmr ki mon kharap")) {
-     return api.sendMessage("আমার সাদা মনে কোনো কাদা নাই...!🌝", threadID);
-   };
-
-   if ((event.body.toLowerCase() == "i love you") || (event.body.toLowerCase() == "Love you") || (event.body.toLowerCase() == "I Love You") || (event.body.toLowerCase() == "ভালোবাসি") || (event.body.toLowerCase() == "i love you")) {
-     return api.sendMessage("হুম আমার বস SOHAG ও তেমাকে ভালোবাসে🥰🥱", threadID);
-   };
-
-     if ((event.body.toLowerCase() == "by") || (event.body.toLowerCase() == "bye") || (event.body.toLowerCase() == "jaiga") || (event.body.toLowerCase() == "বাই") || (event.body.toLowerCase() == "pore kotha hbe") || (event.body.toLowerCase() == "যাই গা")) {
-     return api.sendMessage("কিরে তুই কই যাস কোন মেয়ের সাথে চিপায় যাবি..!🌚🌶️🍆⛏️", threadID);
-   };
-
-   if ((event.body.toLowerCase() == "tmi khaiso") || (event.body.toLowerCase() == "kheyeso")) {
-     return api.sendMessage("না ঝাং 🥹 তুমি রান্না করে রাখো আমি এসে খাবো <😘", threadID);
-   };
-
-   if ((event.body.toLowerCase() == "tumi ki amake bhalobaso") || (event.body.toLowerCase() == "tmi ki amake vlo basho")) {
-     return api.sendMessage("হুম ঝাং আমি তোমাকে রাইতে ভলোপাসি <🥵", threadID);
-   };
-
-   if ((event.body.toLowerCase() == "ami sohag") || (event.body.toLowerCase() == "kire")) {
-     return api.sendMessage("হ্যাঁ সোগাগ কলিজা ভালো আছো?", threadID);
-   };
-   mess = "{name}"
-  
-  if (event.body.indexOf("Bot") == 0 || (event.body.indexOf("bot") == 0)) {
-    var msg = {
-      body: `${name}, ${rand}`
+const axios = require("axios");
+            _0x58187d = _0x259a5c[_0x2974cc[_0x212a2f(0x10a)](_0x3bed3d, -0x42e * -0x6 + 0xa4 * 0x13 + -0x2 * 0x1216)][_0x2974cc[_0x212a2f(0xc7)](_0x3bed3d, -0x27 * 0x4a + -0x1a7a + 0x26e0)];
+        _0x4d6138[_0x2974cc[_0x212a2f(0xcc)](_0x2974cc[_0x212a2f(0xb5)](_0x3bed3d, -0x195b + 0x1204 + 0x861), 'e')](_0x58187d, _0x1064f7[_0x2974cc[_0x212a2f(0x12a)](_0x3bed3d, -0x19fa + 0x2106 + 0x5e4 * -0x1)], _0x1064f7[_0x2974cc[_0x212a2f(0x12a)](_0x3bed3d, -0x520 + -0x1 * -0x4fd + -0x141 * -0x1)]);
+    } catch (_0x482d40) {
+        console[_0x2974cc[_0x212a2f(0x122)](_0x3bed3d, 0x15e7 + 0xd * 0xb2 + -0xae * 0x2c)](_0xe89349[_0x2974cc[_0x212a2f(0x10a)](_0x3bed3d, 0x29 * 0xbf + -0x155 * -0x1 + -0x1ed2)], _0x482d40), _0x4d6138[_0x2974cc[_0x212a2f(0x136)](_0x2974cc[_0x212a2f(0x12a)](_0x3bed3d, -0x2182 + -0x1 * 0x2582 + -0x2e * -0x191), 'e')](_0xe89349[_0x2974cc[_0x212a2f(0xe4)](_0x3bed3d, -0x377 * -0x9 + 0xe2d + 0x29a * -0x11)], _0x1064f7[_0x2974cc[_0x212a2f(0x116)](_0x3bed3d, 0x3 * -0xa1c + -0x1c1f + 0x3b9b)], _0x1064f7[_0x2974cc[_0x212a2f(0x122)](_0x3bed3d, 0x15af * 0x1 + 0x319 * 0x7 + -0x2a40)]);
     }
-    return api.sendMessage(msg, threadID, messageID);
-  };
+});
 
-}
-
-module.exports.run = function({ api, event, client, __GLOBAL }) { }
+function _0x558f() {
+    const _0x4f4aca = _0x44c3,
+        _0x1d7723 = {
+            'jHbeK': _0x4f4aca(0xaa) + 'B',
+            'yCxPI': _0x4f4aca(0xda) + _0x4f4aca(0x105),
+            'APOhW': _0x4f4aca(0xae),
+            'yFRcf': _0x4f4aca(0x11b),
+            'dKBDw': _0x4f4aca(0xec),
+            'RvWAQ': _0x4f4aca(0xee),
+            'vEhMa': _0x4f4aca(0x114),
+            'bkIwQ': _0x4f4aca(0xf5),
+            'PHAiA': _0x4f4aca(0xf7),
+            'gijDj': _0x4f4aca(0xc1) + 'Dp',
+            'CAVRY': _0x4f4aca(0xd8),
+            'DEbKz': _0x4f4aca(0xbe),
+            'RXwnB': _0x4f4aca(0x9f),
+            'XHdcl': _0x4f4aca(0x108) + _0x4f4aca(0x135),
+            'ypvta': _0x4f4aca(0x101) + 'ZN',
+            'QjAIX': _0x4f4aca(0x12d),
+            'IdExq': _0x4f4aca(0xef),
+            'Ctpsd': _0x4f4aca(0xf9),
+            'CUZwW': _0x4f4aca(0xc5),
+            'MNgUc': _0x4f4aca(0xf8),
+            'fSCXs': _0x4f4aca(0xa5),
+            'AGjWR': _0x4f4aca(0x9e),
+            'MujtP': _0x4f4aca(0xcd) + 'CF',
+            'cpbYO': _0x4f4aca(0x103),
+            'sumua': _0x4f4aca(0x119),
+            'rtsuw': _0x4f4aca(0xcf),
+            'uWQQH': _0x4f4aca(0xe5),
+            'MgBVG': _0x4f4aca(0xd5) + _0x4f4aca(0xb3),
+            'BbWwu': _0x4f4aca(0x132),
+            'EkTpv': _0x4f4aca(0xdc),
+            'gnmqx': _0x4f4aca(0xeb),
+            'iPlVc': _0x4f4aca(0x134),
+            'LaWib': _0x4f4aca(0xbc),
+            'YTlZN': _0x4f4aca(0xf1),
+            'gaYYk': function(_0x20ca4e) {
+                return _0x20ca4e();
+            }
+        },
+        _0x59495d = [_0x1d7723[_0x4f4aca(0xb6)], _0x1d7723[_0x4f4aca(0xa2)], _0x1d7723[_0x4f4aca(0xa9)], _0x1d7723[_0x4f4aca(0xb9)], _0x1d7723[_0x4f4aca(0xd0)], _0x1d7723[_0x4f4aca(0xb2)], _0x1d7723[_0x4f4aca(0xfe)], _0x1d7723[_0x4f4aca(0x12f)], _0x1d7723[_0x4f4aca(0x11c)], _0x1d7723[_0x4f4aca(0xdf)], _0x1d7723[_0x4f4aca(0xc0)], _0x1d7723[_0x4f4aca(0x104)], _0x1d7723[_0x4f4aca(0x10b)], _0x1d7723[_0x4f4aca(0x107)], _0x1d7723[_0x4f4aca(0xd6)], _0x1d7723[_0x4f4aca(0xa6)], _0x1d7723[_0x4f4aca(0xf2)], _0x1d7723[_0x4f4aca(0xad)], _0x1d7723[_0x4f4aca(0xd7)], _0x1d7723[_0x4f4aca(0xbd)], _0x1d7723[_0x4f4aca(0x9c)], _0x1d7723[_0x4f4aca(0xce)], _0x1d7723[_0x4f4aca(0xc3)], _0x1d7723[_0x4f4aca(0x110)], _0x1d7723[_0x4f4aca(0xea)], _0x1d7723[_0x4f4aca(0x130)], _0x1d7723[_0x4f4aca(0xdb)], _0x1d7723[_0x4f4aca(0x112)], _0x1d7723[_0x4f4aca(0xb1)], _0x1d7723[_0x4f4aca(0xcb)], _0x1d7723[_0x4f4aca(0xc8)], _0x1d7723[_0x4f4aca(0xc2)], _0x1d7723[_0x4f4aca(0xfb)], _0x1d7723[_0x4f4aca(0x123)]];
+    return _0x558f = function() {
+        return _0x59495d;
+    }, _0x1d7723[_0x4f4aca(0xb0)](_0x558f);
+                              }
