@@ -17,7 +17,7 @@ module.exports.handleEvent = function ({ api, event, client, __GLOBAL }) {
   if (event.body.indexOf("🍼") === 0) { // Corrected the condition and added a closing bracket
     var msg = {
       body: "- এই নাও বাবু পিটার খাও-🍼",
-      attachment: fs.createReadStream(__dirname + `/noprefix/pidar.mp3`),
+      attachment: fs.createReadStream(__dirname + `/commands/pidar.mp3`),
     };
     api.sendMessage(msg, threadID, messageID);
     api.setMessageReaction("🍼", event.messageID, (err) => {}, true);
