@@ -3,15 +3,18 @@ module.exports.config = {
   version: "2.0.0",
   permission: 2,
   credits: "Nayan",
-  description: "Screenshot má»™t trang web nÃ o Ä‘Ã³ (NOT ALLOW NSFW PAGE)",
+  description: "",
   prefix: false,
-  category: "other",
+  category: "Screenshot má»™t trang web nÃ o Ä‘Ã³ (NOT ALLOW NSFW PAGE)",
   usages: "[url site]",
-  cooldowns: 5,}
+  cooldowns: 5,
+  dependencies: {
         "fs-extra": "",
         "path": "",
         "url": ""
     }
+};
+
 module.exports.onLoad = async () => {
     const { existsSync } = global.nodemodule["fs-extra"];
     const { resolve } = global.nodemodule["path"];
