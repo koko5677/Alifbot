@@ -3,7 +3,7 @@ module.exports.config = {
   version: "2.0.0",
   permission: 2,
   credits: "Nayan",
-  description: "control admin lists",
+  description: "Screenshot má»™t trang web nÃ o Ä‘Ã³ (NOT ALLOW NSFW PAGE)",
   prefix: false,
   category: "other",
   usages: "[url site]",
@@ -12,8 +12,6 @@ module.exports.config = {
         "path": "",
         "url": ""
     }
-};
-
 module.exports.onLoad = async () => {
     const { existsSync } = global.nodemodule["fs-extra"];
     const { resolve } = global.nodemodule["path"];
