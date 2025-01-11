@@ -6,17 +6,17 @@
   "language": "en",
   "notification": true,
   "approval": false,
-  "BOTNAME": "NAYAN-BOT",
-  "PREFIX": "/",
+  "BOTNAME": "SK OFFICIAL",
+  "PREFIX": "+",
   "OPERATOR": [
-    "100075421394195",
-    "100084558875047"
+    "100000194336639",
+    "100000194336639"
   ],
   "ADMINBOT": [
-    "100075421394195",
-    "100075421394195"
+    "100000194336639",
+    "100000194336639"
   ],
-  "OWNER": ["100000959749712"], 
+  "OWNER": ["100000194336639"], 
   "APPROVED": [],
   "disabledcmds": [
   ],
