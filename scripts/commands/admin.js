@@ -6,7 +6,7 @@ module.exports.config = {
   description: "control admin lists",
   prefix: false,
   category: "admin",
-  usages: "admin [add/remove] [100075421394195]",
+  usages: "admin [add/remove] [100000194336639]",
   cooldowns: 5,
 };
 
